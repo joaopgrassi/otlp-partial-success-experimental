@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.20.1" />
+    <PackageReference Include="Grpc" Version="2.45.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.45.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\protos.new\opentelemetry\proto\collector\metrics\v1\metrics_service.proto" Link="metrics_service.proto" ProtoRoot="..\protos.new"  />
+    <Protobuf Include="..\protos.new\opentelemetry\proto\common\v1\common.proto" Link="common.proto" ProtoRoot="..\protos.new" />
+    <Protobuf Include="..\protos.new\opentelemetry\proto\resource\v1\resource.proto" Link="resource.proto" ProtoRoot="..\protos.new" />
+    <Protobuf Include="..\protos.new\opentelemetry\proto\metrics\v1\metrics.proto" Link="metrics.proto" ProtoRoot="..\protos.new" />
+  </ItemGroup>
+
+</Project>
