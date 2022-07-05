@@ -23,10 +23,11 @@ class MetricsServiceImpl : MetricsService.MetricsServiceBase
         var resp = new ExportMetricsServiceResponse
         {
             // server sending the new "partial success" extra info
-            Details = new ExportMetricsPartialSuccess
+            PartialSuccess = new ExportMetricsPartialSuccess
             {
-                AcceptedDataPoints = 3,
-                ErrorMessage = "Some error happened, here are the details..."
+                AcceptedDataPoints = 1
+                // error message not set
+
             }
         };
 

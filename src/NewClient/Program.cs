@@ -12,12 +12,17 @@ var req = new ExportMetricsServiceRequest();
 
 var response = client.Export(req);
 
-if (response.Details != null)
+var partialSuccess = response.PartialSuccess;
+
+if (partialSuccess is not null)
 {
-    Console.WriteLine("Number of lines accepted: {0}", response.Details.AcceptedDataPoints);
-    Console.WriteLine("Error message: {0}", response.Details.ErrorMessage);
+    Console.WriteLine("Number of lines accepted: {0}", response.PartialSuccess.AcceptedDataPoints);
+
+    if (partialSuccess.HasErrorMessage)
+    {
+        Console.WriteLine("Error message: {0}", partialSuccess.ErrorMessage);
+    }
 }
 
 channel.ShutdownAsync().Wait();
 Console.WriteLine("Press any key to exit...");
-Console.ReadKey();
