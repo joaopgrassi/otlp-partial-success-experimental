@@ -1,5 +1,5 @@
 using Grpc.Core;
-using Opentelemetry.Proto.Collector.Metrics.V1;
+using OpenTelemetry.Proto.Collector.Metrics.V1;
 
 
 // New client talking to a server that returns the new protos
@@ -16,9 +16,9 @@ var partialSuccess = response.PartialSuccess;
 
 if (partialSuccess is not null)
 {
-    Console.WriteLine("Number of lines accepted: {0}", response.PartialSuccess.AcceptedDataPoints);
+    Console.WriteLine("Number of rejected data points: {0}", response.PartialSuccess.RejectedDataPoints);
 
-    if (partialSuccess.HasErrorMessage)
+    if (!string.IsNullOrEmpty(partialSuccess.ErrorMessage))
     {
         Console.WriteLine("Error message: {0}", partialSuccess.ErrorMessage);
     }

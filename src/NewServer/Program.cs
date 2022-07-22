@@ -1,5 +1,5 @@
 using Grpc.Core;
-using Opentelemetry.Proto.Collector.Metrics.V1;
+using OpenTelemetry.Proto.Collector.Metrics.V1;
 
 const int Port = 30052;
 
@@ -25,9 +25,8 @@ class MetricsServiceImpl : MetricsService.MetricsServiceBase
             // server sending the new "partial success" extra info
             PartialSuccess = new ExportMetricsPartialSuccess
             {
-                AcceptedDataPoints = 1
-                // error message not set
-
+                RejectedDataPoints = 1,
+                ErrorMessage = "Some data points were rejected.."
             }
         };
 
